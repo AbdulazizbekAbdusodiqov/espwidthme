@@ -22,7 +22,7 @@ export const LandingPageContent: React.FC = () => {
     <div className={styles["landing-container"]}>
       <section className={`${styles.section} ${styles["hero-section"]}`}>
         <img
-          src="/iamge.jpg?height=1080&width=1920&text=Dynamic+English+Learning"
+          src="/image.jpg?height=1080&width=1920&text=Dynamic+English+Learning"
           alt="Dynamic English Learning Platform"
           className={styles["hero-background"]}
         />
