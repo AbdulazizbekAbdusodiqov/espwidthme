@@ -1,0 +1,116 @@
+/* styles/globals.scss */
+
+:root {
+  --color-primary: #2196F3; /* Vibrant Blue */
+  --color-primary-dark: #1976D2; /* Darker Blue */
+  --color-secondary: #00BCD4; /* Bright Cyan */
+  --color-secondary-dark: #0097A7; /* Darker Cyan */
+  --color-background: #F0F2F5; /* Light Grey */
+  --color-background-darker: #E0E2E5;
+  --color-text: #212121; /* Dark Grey */
+  --color-text-light: #FAFAFA; /* Light Grey */
+  --color-border: #BDBDBD; /* Medium Grey */
+  --color-sidebar-bg: #FFFFFF; /* White */
+  --color-sidebar-text: #212121;
+  --color-sidebar-active-bg: #E3F2FD; /* Light Blue */
+  --color-sidebar-active-text: #2196F3;
+  --color-button-bg: var(--color-primary);
+  --color-button-text: var(--color-text-light);
+  --color-input-border: var(--color-border);
+  --color-input-bg: #FFFFFF;
+  --color-error: #D32F2F; /* Red */
+  --color-navbar-bg: #FFFFFF; /* White */
+  --color-navbar-text: #212121;
+  --color-navbar-logout: #9c9494;
+}
+
+.dark {
+  --color-primary: #64B5F6; /* Slightly lighter blue for dark mode */
+  --color-primary-dark: #2196F3;
+  --color-secondary: #4DD0E1; /* Slightly lighter cyan */
+  --color-secondary-dark: #00BCD4;
+  --color-background: #212121; /* Dark Grey */
+  --color-background-darker: #303030;
+  --color-text: #FAFAFA; /* Light Grey */
+  --color-text-light: #212121; /* Dark Grey */
+  --color-border: #424242; /* Darker Grey */
+  --color-sidebar-bg: #2C2C2C; /* Darker Grey */
+  --color-sidebar-text: #FAFAFA;
+  --color-sidebar-active-bg: #1A237E; /* Darker Blue */
+  --color-sidebar-active-text: #FAFAFA;
+  --color-button-bg: var(--color-primary);
+  --color-button-text: var(--color-text-light);
+  --color-input-border: var(--color-border);
+  --color-input-bg: #303030;
+  --color-error: #EF5350; /* Lighter Red */
+  --color-navbar-bg: #2C2C2C; /* Darker Grey */
+  --color-navbar-text: #FAFAFA;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  color: var(--color-text);
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  padding: 0.75em 1.5em;
+  border-radius: 0.5em;
+  font-size: 1em;
+  font-weight: 600;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"] {
+  width: 100%;
+  padding: 0.75em 1em;
+  border: 1px solid var(--color-input-border);
+  border-radius: 0.5em;
+  background-color: var(--color-input-bg);
+  color: var(--color-text);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="tel"]:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(var(--color-primary-rgb), 0.2);
+}
+
+.error-message {
+  color: var(--color-error);
+  font-size: 0.875em;
+  margin-top: 0.25em;
+}

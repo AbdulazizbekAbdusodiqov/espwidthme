@@ -1,0 +1,155 @@
+/* components/sidebar/sidebar.module.scss */
+
+.sidebar-container {
+  width: 250px;
+  background-color: var(--color-sidebar-bg);
+  color: var(--color-sidebar-text);
+  padding: 1.5em 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  border-right: 1px solid var(--color-border);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+  transition: width 0.3s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0; /* Prevent shrinking */
+  overflow: hidden; /* Hide content when collapsed */
+
+  &.collapsed {
+    width: 0;
+    padding: 0;
+  }
+
+  @media (max-width: 768px) {
+    position: fixed;
+    top: var(--navbar-height); /* Starts below the navbar */
+    left: 0;
+    height: calc(100vh - var(--navbar-height)); /* Occupies remaining height */
+    z-index: 1000; /* Lower than navbar's z-index */
+    width: 250px; /* Fixed width for mobile sidebar */
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+    padding: 1.5em 1em; /* Ensure padding is present when open */
+
+    &.collapsed {
+      transform: translateX(-100%);
+    }
+    &.open {
+      transform: translateX(0);
+    }
+  }
+}
+
+.logo {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: 1em;
+  white-space: nowrap; /* Prevent wrapping when sidebar is narrow */
+  opacity: 1;
+  transition: opacity 0.3s ease;
+
+  .sidebar-container.collapsed & {
+    opacity: 0;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 0;
+    flex-basis: 100%;
+    text-align: left;
+  }
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.nav-item {
+  a {
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+    padding: 0.75em 1em;
+    border-radius: 0.5em;
+    color: var(--color-sidebar-text);
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    white-space: nowrap; /* Prevent wrapping */
+
+    &:hover {
+      background-color: var(--color-sidebar-active-bg);
+      color: var(--color-sidebar-active-text);
+    }
+
+    &.active {
+      background-color: var(--color-sidebar-active-bg);
+      color: var(--color-sidebar-active-text);
+      font-weight: 600;
+    }
+
+    svg {
+      width: 1.2em;
+      height: 1.2em;
+      flex-shrink: 0;
+    }
+
+    span {
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+  }
+
+  .sidebar-container.collapsed & {
+    a {
+      padding: 0.75em; /* Adjust padding for icon-only */
+      span {
+        opacity: 0;
+        width: 0;
+        overflow: hidden;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    a {
+      padding: 0.5em 0.75em;
+      font-size: 0.9em;
+      gap: 0.5em;
+      flex-direction: row; /* Keep row for mobile */
+      text-align: left;
+
+      svg {
+        width: 1em;
+        height: 1em;
+      }
+    }
+  }
+}
+
+.theme-section {
+  margin-top: auto;
+  padding-top: 1.5em;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+
+  .sidebar-container.collapsed & {
+    opacity: 0;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 1em;
+    padding-top: 1em;
+    border-top: none;
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
