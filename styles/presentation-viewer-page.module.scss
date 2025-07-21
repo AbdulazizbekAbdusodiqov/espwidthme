@@ -1,0 +1,134 @@
+/* styles/presentation-viewer-page.module.scss */
+
+.presentation-viewer-page-container {
+  padding: 2em;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  align-items: center;
+}
+
+.page-header {
+  font-size: 2.5em;
+  color: var(--color-primary-dark);
+  margin-bottom: 1em;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 2em;
+  }
+}
+
+.presentation-viewer-wrapper {
+  width: 100%;
+  max-width: 1024px; /* Maksimal kenglik */
+  aspect-ratio: 16 / 9; /* 16:9 nisbat, slaydlar uchun mos */
+  background-color: var(--color-background-darker);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1em;
+  /* padding: 20px; Ichki paddingni iframe uchun olib tashladik */
+}
+
+.presentation-iframe {
+  width: 100%;
+  height: 100%;
+  border: none; /* Iframe chegarasini olib tashlash */
+}
+
+.placeholder-image {
+  width: 80%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.placeholder-message {
+  font-size: 1.2em;
+  color: var(--color-text);
+  text-align: center;
+}
+
+.presentation-details {
+  width: 100%;
+  max-width: 1024px;
+  background-color: var(--color-sidebar-bg);
+  padding: 2em;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.presentation-details-title {
+  font-size: 2em;
+  color: var(--color-primary-dark);
+  margin-bottom: 0.5em;
+
+  @media (max-width: 768px) {
+    font-size: 1.8em;
+  }
+}
+
+.presentation-details-description {
+  font-size: 1.1em;
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+.completion-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #4CAF50;
+  margin-top: 1em;
+}
+
+.completion-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  font-size: 2em;
+  font-weight: bold;
+  z-index: 10;
+  border-radius: 10px;
+}
+
+.mark-completed-button {
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  padding: 0.8em 1.5em;
+  border-radius: 0.5em;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  align-self: flex-start; /* Chapga surish */
+
+  &:hover {
+    background-color: var(--color-primary-dark);
+  }
+}

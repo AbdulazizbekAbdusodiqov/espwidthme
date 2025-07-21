@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://espwidthme.vercel.app/sitemap.xml

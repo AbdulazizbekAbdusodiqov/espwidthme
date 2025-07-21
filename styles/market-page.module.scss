@@ -1,0 +1,77 @@
+/* styles/market-page.module.scss */
+
+.market-page-container {
+  padding: 2em;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  align-items: center;
+  justify-content: center; /* Markazga joylashtirish */
+  text-align: center;
+}
+
+.page-header {
+  font-size: 2.5em;
+  color: var(--color-primary-dark);
+  margin-bottom: 1em;
+
+  @media (max-width: 768px) {
+    font-size: 2em;
+  }
+}
+
+.placeholder-card {
+  background-color: var(--color-sidebar-bg);
+  padding: 3em 2em;
+  border-radius: 1em;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5em;
+}
+
+.placeholder-icon {
+  color: var(--color-secondary);
+  width: 5em;
+  height: 5em;
+}
+
+.placeholder-title {
+  font-size: 2em;
+  color: var(--color-primary);
+  margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 1.8em;
+  }
+}
+
+.placeholder-message {
+  font-size: 1.1em;
+  color: var(--color-text);
+  line-height: 1.6;
+  margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 1em;
+  }
+}
+
+.contact-link {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+
+  &:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+  }
+}

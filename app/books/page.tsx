@@ -1,5 +1,28 @@
 import { BookCard } from "@/components/books/BookCard"
-import styles from "@/styles/books-page.module.scss" // Updated import path
+import styles from "@/styles/books-page.module.scss"
+import type { Metadata } from "next" // Metadata turini import qildik
+
+// Sahifaga xos metadata
+export const metadata: Metadata = {
+  title: "ESPwithme - Our Books Collection",
+  description:
+    "Explore our extensive collection of English learning e-books, articles, and study materials tailored for all levels. Download and start reading today!",
+  keywords: [
+    "English books",
+    "ESL books",
+    "e-books",
+    "English reading",
+    "study materials",
+    "grammar books",
+    "vocabulary books",
+  ],
+  openGraph: {
+    title: "ESPwithme - Our Books Collection",
+    description:
+      "Explore our extensive collection of English learning e-books, articles, and study materials tailored for all levels. Download and start reading today!",
+    url: "https://www.espwithme.com/books", // Loyihangizning haqiqiy URL manzilini kiriting
+  },
+}
 
 // Mock data for books
 const booksData = [

@@ -1,5 +1,19 @@
 import { VideoCard } from "@/components/videos/VideoCard"
 import styles from "@/styles/video-lessons-page.module.scss"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "ESPwithme - Video Lessons",
+  description:
+    "Access a wide range of interactive English video lessons covering grammar, vocabulary, and pronunciation.",
+  keywords: ["English video lessons", "learn English online", "grammar videos", "vocabulary videos", "pronunciation"],
+  openGraph: {
+    title: "ESPwithme - Video Lessons",
+    description:
+      "Access a wide range of interactive English video lessons covering grammar, vocabulary, and pronunciation.",
+    url: "https://www.espwithme.com/video-lessons",
+  },
+}
 
 // Video darslar uchun mock ma'lumotlar
 const videosData = [
