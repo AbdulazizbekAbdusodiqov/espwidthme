@@ -2,6 +2,7 @@
 
 import { createSlice, createAsyncThunk, type PayloadAction } from "@reduxjs/toolkit"
 import api from "./api"
+import type { AppDispatch } from "./store"
 
 interface User {
   username: string
@@ -32,19 +33,26 @@ const initialState: AuthState = {
 // Mock API calls
 const mockRegisterApi = async (userData: User) => {
   const response = await api.post("/register", userData)
+  console.log(response);
+  
   return response.data // Faqat data qismini qaytar
 }
 
 // mockLoginApi funksiyasini olib tashlaymiz
 
-export const registerUser = createAsyncThunk("auth/registerUser", async (userData: User, { rejectWithValue }) => {
-  try {
-    const data: any = await mockRegisterApi(userData)
-    return data // Endi bu faqat serializable bo'ladi
-  } catch (error: any) {
-    return rejectWithValue(error.message || "Registration failed")
+export const registerUser = createAsyncThunk(
+  "auth/registerUser",
+  async (userData: User, { rejectWithValue, dispatch }) => {
+    try {
+      const data: any = await mockRegisterApi(userData)
+      // Ro'yxatdan muvaffaqiyatli o'tgandan so'ng avtomatik login
+      await dispatch(loginUser({ username: userData.username, password: userData.password! }))
+      return data
+    } catch (error: any) {
+      return rejectWithValue(error.message || "Registration failed")
+    }
   }
-})
+)
 
 export const loginUser = createAsyncThunk("auth/loginUser", async (credentials: { username: string; password: string }, { rejectWithValue }) => {
   try {

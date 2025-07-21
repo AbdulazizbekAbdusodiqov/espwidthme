@@ -1,0 +1,39 @@
+/* styles/books-page.module.scss */
+
+.books-page-container {
+  padding: 2em;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.page-header {
+  font-size: 2.5em;
+  color: var(--color-primary-dark);
+  margin-bottom: 1em;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 2em;
+  }
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+  gap: 2em; /* Gap between cards */
+  justify-items: center; /* Center cards in their grid cells */
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5em;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr; /* Stack cards on very small screens */
+    gap: 1em;
+  }
+}

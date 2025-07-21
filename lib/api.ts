@@ -3,7 +3,7 @@
 import axios from "axios"
 
 const api = axios.create({
-  baseURL: "https://03b4ecc37e70.ngrok-free.app/api", // In a real app, this would point to your backend API
+  baseURL: "http://20.222.176.26/api", // In a real app, this would point to your backend API
   headers: {
     "Content-Type": "application/json",
   },
