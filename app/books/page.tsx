@@ -9,6 +9,7 @@ const booksData = [
     author: "F. Scott Fitzgerald",
     genre: "Classic",
     imageUrl: "/placeholder.svg?height=200&width=150&text=Gatsby",
+    downloadUrl: "https://abdulazizdev.uz/resume/Abdulazizbek_Abdusodiqov_Resume.pdf", // Added download URL
   },
   {
     id: "2",
@@ -16,6 +17,7 @@ const booksData = [
     author: "George Orwell",
     genre: "Dystopian",
     imageUrl: "/placeholder.svg?height=200&width=150&text=1984",
+    downloadUrl: "https://abdulazizdev.uz/resume/Abdulazizbek_Abdusodiqov_Resume.pdf", // Added download URL
   },
   {
     id: "3",
@@ -23,6 +25,7 @@ const booksData = [
     author: "Harper Lee",
     genre: "Fiction",
     imageUrl: "/placeholder.svg?height=200&width=150&text=Mockingbird",
+    downloadUrl: "https://abdulazizdev.uz/resume/Abdulazizbek_Abdusodiqov_Resume.pdf", // Added download URL
   },
   {
     id: "4",
@@ -30,6 +33,7 @@ const booksData = [
     author: "Jane Austen",
     genre: "Romance",
     imageUrl: "/placeholder.svg?height=200&width=150&text=Pride",
+    downloadUrl: "https://abdulazizdev.uz/resume/Abdulazizbek_Abdusodiqov_Resume.pdf", // Added download URL
   },
   {
     id: "5",
@@ -37,6 +41,7 @@ const booksData = [
     author: "J.R.R. Tolkien",
     genre: "Fantasy",
     imageUrl: "/placeholder.svg?height=200&width=150&text=Hobbit",
+    downloadUrl: "https://abdulazizdev.uz/resume/Abdulazizbek_Abdusodiqov_Resume.pdf", // Added download URL
   },
   {
     id: "6",
@@ -44,6 +49,7 @@ const booksData = [
     author: "Frank Herbert",
     genre: "Science Fiction",
     imageUrl: "/placeholder.svg?height=200&width=150&text=Dune",
+    downloadUrl: "https://abdulazizdev.uz/resume/Abdulazizbek_Abdusodiqov_Resume.pdf", // Added download URL
   },
 ]
 

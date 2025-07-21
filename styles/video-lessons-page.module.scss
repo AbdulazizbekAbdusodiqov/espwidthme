@@ -1,0 +1,39 @@
+/* styles/video-lessons-page.module.scss */
+
+.video-lessons-page-container {
+  padding: 2em;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.page-header {
+  font-size: 2.5em;
+  color: var(--color-primary-dark);
+  margin-bottom: 1em;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 2em;
+  }
+}
+
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid for videos */
+  gap: 2em;
+  justify-items: center;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5em;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 1em;
+  }
+}

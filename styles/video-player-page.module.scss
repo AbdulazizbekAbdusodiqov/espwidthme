@@ -1,0 +1,98 @@
+/* styles/video-player-page.module.scss */
+
+.video-player-page-container {
+  padding: 2em;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  align-items: center;
+}
+
+.page-header {
+  font-size: 2.5em;
+  color: var(--color-primary-dark);
+  margin-bottom: 1em;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 2em;
+  }
+}
+
+.video-player-wrapper {
+  width: 100%;
+  max-width: 960px; /* Maksimal kenglik */
+  aspect-ratio: 16 / 9; /* 16:9 nisbat */
+  background-color: black;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  position: relative; /* Tugallanish overlay uchun */
+}
+
+.youtube-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-details {
+  width: 100%;
+  max-width: 960px;
+  background-color: var(--color-sidebar-bg);
+  padding: 2em;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.video-details-title {
+  font-size: 2em;
+  color: var(--color-primary-dark);
+  margin-bottom: 0.5em;
+
+  @media (max-width: 768px) {
+    font-size: 1.8em;
+  }
+}
+
+.video-details-description {
+  font-size: 1.1em;
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+.completion-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #4CAF50; /* Yashil rang */
+  margin-top: 1em;
+}
+
+.completion-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  font-size: 2em;
+  font-weight: bold;
+  z-index: 10; /* Videodan ustun bo'lishi uchun */
+  border-radius: 10px;
+}

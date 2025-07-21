@@ -11,10 +11,15 @@ interface BookCardProps {
     author: string
     genre: string
     imageUrl: string
+    downloadUrl: string // Added downloadUrl to props
   }
 }
 
 export const BookCard: React.FC<BookCardProps> = ({ book }) => {
+  const handleDownload = () => {
+    window.open(book.downloadUrl, "_blank") // Open URL in a new tab to trigger download
+  }
+
   return (
     <div className={styles["book-card"]}>
       <div className={styles["book-image"]}>
@@ -29,7 +34,9 @@ export const BookCard: React.FC<BookCardProps> = ({ book }) => {
         <span>Genre:</span>
         <p>{book.genre}</p>
       </div>
-      <button className={styles["download-button"]}>Download</button>
+      <button className={styles["download-button"]} onClick={handleDownload}>
+        Download
+      </button>
     </div>
   )
 }
