@@ -7,32 +7,32 @@ import styles from "./book-card.module.scss"
 interface BookCardProps {
   book: {
     id: string
-    name: string
+    title: string
     author: string
-    genre: string
-    imageUrl: string
-    downloadUrl: string // Added downloadUrl to props
+    category: string
+    image: string
+    file: string // Added downloadUrl to props
   }
 }
 
 export const BookCard: React.FC<BookCardProps> = ({ book }) => {
   const handleDownload = () => {
-    window.open(book.downloadUrl, "_blank") // Open URL in a new tab to trigger download
+    window.open(book.file, "_blank") // Open URL in a new tab to trigger download
   }
 
   return (
     <div className={styles["book-card"]}>
       <div className={styles["book-image"]}>
-        <Image src={book.imageUrl || "/placeholder.svg"} alt={book.name} width={150} height={200} />
+        <Image src={`${process.env.NEXT_PUBLIC_BASE_URL}/storage/${book.image}` || "/placeholder.svg"} alt={book.title} width={150} height={200} />
       </div>
-      <h2 className={styles["book-name"]}>{book.name}</h2>
+      <h2 className={styles["book-name"]}>{book.title}</h2>
       <div className={styles["book-info"]}>
         <span>Author:</span>
-        <p>{book.author}</p>
+        <p>{book.author }</p>
       </div>
       <div className={styles["book-info"]}>
-        <span>Genre:</span>
-        <p>{book.genre}</p>
+        <span>Category:</span>
+        <p>{book.category || "reading"}</p>
       </div>
       <button className={styles["download-button"]} onClick={handleDownload}>
         Download

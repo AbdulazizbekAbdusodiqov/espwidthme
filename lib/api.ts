@@ -3,7 +3,7 @@
 import axios from "axios"
 
 const api = axios.create({
-  baseURL: "http://20.222.176.26/api", // In a real app, this would point to your backend API
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
   headers: {
     "Content-Type": "application/json",
   },
