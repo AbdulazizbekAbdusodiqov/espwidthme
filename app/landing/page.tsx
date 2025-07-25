@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: "ESPwithme - Your Ultimate English Learning Platform",
     description:
       "Unlock your English potential with interactive lessons, comprehensive resources, and gamified learning. Start your journey to fluency today!",
-    url: "https://www.espwithme.com/landing",
+    url: "https://www.espwithme.uz/landing",
   },
 }
 

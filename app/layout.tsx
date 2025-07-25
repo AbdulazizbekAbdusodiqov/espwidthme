@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "ESPwithme - Unlock Your English Potential",
     description:
       "Your ultimate platform for interactive English lessons, comprehensive resources, and engaging gamified learning. Start your journey to fluency today!",
-    url: "https://www.espwithme.com", // Loyihangizning haqiqiy URL manzilini kiriting
+    url: "https://www.espwithme.uz", // To'g'ri domen
     siteName: "ESPwithme",
     images: [
       {
@@ -51,5 +51,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  return <ClientLayout>{children}</ClientLayout>
+  return (
+    <>
+      <head>
+        <link rel="icon" href="/espwithme.ico" type="image/x-icon" />
+      </head>
+      <ClientLayout>{children}</ClientLayout>
+    </>
+  )
 }

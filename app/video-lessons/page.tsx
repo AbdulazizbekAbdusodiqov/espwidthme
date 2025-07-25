@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "ESPwithme - Video Lessons",
     description:
       "Access a wide range of interactive English video lessons covering grammar, vocabulary, and pronunciation.",
-    url: "https://www.espwithme.com/video-lessons",
+    url: "https://www.espwithme.uz/video-lessons",
   },
 }
 

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "ESPwithme - Login",
     description:
       "Log in to your ESPwithme account to access your personalized English learning dashboard and resources.",
-    url: "https://www.espwithme.com/auth/login",
+    url: "https://www.espwithme.uz/auth/login",
   },
 }
 

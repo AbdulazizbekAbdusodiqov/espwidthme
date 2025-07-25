@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://espwidthme.vercel.appc/sitemap.xml
+Sitemap: https://www.espwithme.uz/sitemap.xml

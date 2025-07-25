@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: "ESPwithme - Audio Lessons",
     description:
       "Improve your English listening and speaking skills with our diverse collection of audio lessons and podcasts.",
-    url: "https://www.espwithme.com/audio-lessons",
+    url: "https://www.espwithme.uz/audio-lessons",
   },
 }
 

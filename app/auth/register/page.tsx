@@ -7,8 +7,9 @@ export const metadata: Metadata = {
   keywords: ["register", "sign up", "create account", "free English learning", "ESPwithme register"],
   openGraph: {
     title: "ESPwithme - Register",
-    description: "Create your free ESPwithme account to start your English learning journey today!",
-    url: "https://www.espwithme.com/auth/register",
+    description:
+      "Create your ESPwithme account to access personalized English learning resources and track your progress.",
+    url: "https://www.espwithme.uz/auth/register",
   },
 }
 

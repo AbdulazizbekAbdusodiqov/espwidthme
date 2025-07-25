@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "ESPwithme - Market (Coming Soon)",
     description: "Discover exclusive English learning resources, tools, and more in our upcoming ESPwithme Market.",
-    url: "https://www.espwithme.com/market",
+    url: "https://www.espwithme.uz/market",
   },
 }
 
