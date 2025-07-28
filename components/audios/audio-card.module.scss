@@ -21,6 +21,14 @@
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     }
   }
+  @media (max-width: 1024px) and (min-width: 481px) {
+    padding: 1em;
+    font-size: 0.95em;
+  }
+  @media (max-width: 480px) {
+    padding: 0.5em;
+    font-size: 0.85em;
+  }
 }
 
 .audio-link-wrapper {

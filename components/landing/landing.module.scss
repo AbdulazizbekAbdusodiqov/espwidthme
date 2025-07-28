@@ -19,12 +19,11 @@
   position: relative;
   overflow: hidden; /* Ensure content stays within bounds */
 
-  @media (max-width: 1024px) {
-    padding: 3em 1.5em; /* Adjust padding for tablets */
+  @media (max-width: 1024px) and (min-width: 481px) {
+    padding: 2.5em 1em;
   }
-
-  @media (max-width: 768px) {
-    padding: 2em 1em; /* Adjust padding for mobile */
+  @media (max-width: 480px) {
+    padding: 1.5em 0.5em;
   }
 }
 
@@ -76,23 +75,26 @@
 .hero-section {
   background-color: var(--color-background-darker);
   color: var(--color-text-light);
-  padding: 6em 2em;
+  padding: 3em 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
-  min-height: 70vh; /* Make hero section taller */
+  min-height: 70vh;
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
 
-  @media (max-width: 1024px) {
-    padding: 5em 1.5em;
-    min-height: 60vh;
-  }
-
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) and (min-width: 481px) {
     padding: 4em 1em;
-    min-height: 50vh;
+    min-height: 55vh;
+  }
+  @media (max-width: 480px) {
+    padding: 2.5em 0.5em;
+    min-height: 40vh;
   }
 
   &::before {
@@ -102,7 +104,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)); /* Dark overlay */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8));
     z-index: 1;
   }
 
@@ -114,7 +116,7 @@
     height: 100%;
     object-fit: cover;
     z-index: 0;
-    filter: brightness(0.7); /* Slightly darken the image */
+    filter: brightness(0.7);
   }
 
   .hero-content {
@@ -125,7 +127,6 @@
     flex-direction: column;
     align-items: center;
     gap: 1.5em;
-    /* Apply animation to hero content */
     animation: fadeInUp 1s ease-out forwards;
     animation-delay: 0.3s;
   }
@@ -142,14 +143,11 @@
     color: var(--color-secondary); /* Bright Cyan for emphasis */
   }
 
-  @media (max-width: 1024px) {
-    font-size: 3.5em;
-  }
-  @media (max-width: 768px) {
-    font-size: 2.8em;
+  @media (max-width: 1024px) and (min-width: 481px) {
+    font-size: 2.5em;
   }
   @media (max-width: 480px) {
-    font-size: 2em;
+    font-size: 1.5em;
   }
 }
 
@@ -160,16 +158,13 @@
   max-width: 800px;
   line-height: 1.5;
 
-  @media (max-width: 1024px) {
-    font-size: 1.4em;
-  }
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) and (min-width: 481px) {
     font-size: 1.1em;
-    margin-bottom: 1.5em;
+    margin-bottom: 1em;
   }
   @media (max-width: 480px) {
-    font-size: 1em;
-    margin-bottom: 1em;
+    font-size: 0.95em;
+    margin-bottom: 0.5em;
   }
 }
 
@@ -258,12 +253,12 @@
   max-width: 1200px;
   margin: 0 auto;
 
-  @media (max-width: 768px) {
-    gap: 2em;
+  @media (max-width: 1024px) and (min-width: 481px) {
+    gap: 1.5em;
   }
   @media (max-width: 480px) {
     grid-template-columns: 1fr; /* Stack cards on very small screens */
-    gap: 1.5em;
+    gap: 1em;
   }
 }
 
@@ -278,6 +273,13 @@
   flex-direction: column;
   align-items: center;
   gap: 1em;
+
+  @media (max-width: 1024px) and (min-width: 481px) {
+    padding: 1.2em;
+  }
+  @media (max-width: 480px) {
+    padding: 0.7em;
+  }
 
   @media (min-width: 769px) { /* Apply hover only on larger screens */
     &:hover {
@@ -309,8 +311,11 @@
     margin-bottom: 0.5em;
     font-weight: 600;
 
+    @media (max-width: 1024px) and (min-width: 481px) {
+      font-size: 1.2em;
+    }
     @media (max-width: 480px) {
-      font-size: 1.5em;
+      font-size: 1em;
     }
   }
 
@@ -319,8 +324,11 @@
     color: var(--color-text);
     line-height: 1.6;
 
-    @media (max-width: 480px) {
+    @media (max-width: 1024px) and (min-width: 481px) {
       font-size: 0.95em;
+    }
+    @media (max-width: 480px) {
+      font-size: 0.85em;
     }
   }
 }
