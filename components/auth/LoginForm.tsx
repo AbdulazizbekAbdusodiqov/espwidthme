@@ -8,6 +8,8 @@ import Link from "next/link"
 import { loginUser } from "@/lib/authSlice"
 import type { RootState, AppDispatch } from "@/lib/store"
 import styles from "./auth.module.scss"
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 export const LoginForm: React.FC = () => {
   const [username, setUsername] = useState("")
@@ -19,7 +21,13 @@ export const LoginForm: React.FC = () => {
   useEffect(() => {
     if (isAuthenticated) {
       router.push("/") // Redirect to main page on successful login
-      // router.push("/") // Redirect to main page on successful login
+    }
+    // Ro'yxatdan muvaffaqiyatli o'tilganini tekshirish va toast chiqarish
+    if (typeof window !== "undefined" && localStorage.getItem("registrationSuccess") === "true") {
+      toast.success("Registration successful! Please login with your credentials.")
+      setTimeout(() => {
+        localStorage.removeItem("registrationSuccess")
+      }, 5000)
     }
   }, [isAuthenticated, router])
 
@@ -30,6 +38,7 @@ export const LoginForm: React.FC = () => {
 
   return (
     <div className={styles["auth-container"]}>
+      <ToastContainer />
       <div className={styles["auth-card"]}>
         <h1 className={styles["auth-title"]}>Login</h1>
         <p className={styles["auth-subtitle"]}>Enter your credentials to access your account</p>

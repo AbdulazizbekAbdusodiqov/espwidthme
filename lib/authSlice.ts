@@ -42,12 +42,10 @@ const mockRegisterApi = async (userData: User) => {
 
 export const registerUser = createAsyncThunk(
   "auth/registerUser",
-  async (userData: User, { rejectWithValue, dispatch }) => {
+  async (userData: User, { rejectWithValue }) => {
     try {
       const data: any = await mockRegisterApi(userData)
-      // Ro'yxatdan muvaffaqiyatli o'tgandan so'ng avtomatik login
-      await dispatch(loginUser({ username: userData.username, password: userData.password! }))
-      return data
+      return { success: true, message: "Registration successful! Please login." }
     } catch (error: any) {
       return rejectWithValue(error.message || "Registration failed")
     }
@@ -96,12 +94,10 @@ const authSlice = createSlice({
         state.loading = true
         state.error = null
       })
-      .addCase(registerUser.fulfilled, (state, action: PayloadAction<{ user: User; token: string }>) => {
+      .addCase(registerUser.fulfilled, (state, action: PayloadAction<{ success: boolean; message: string }>) => {
         state.loading = false
-        state.user = action.payload.user
-        state.token = action.payload.token
-        state.isAuthenticated = true
-        localStorage.setItem("authToken", action.payload.token)
+        // Ro'yxatdan o'tgandan keyin login qilmaymiz, faqat success message qaytaramiz
+        state.error = null
       })
       .addCase(registerUser.rejected, (state, action) => {
         state.loading = false

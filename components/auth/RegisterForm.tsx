@@ -8,6 +8,7 @@ import Link from "next/link"
 import { registerUser } from "@/lib/authSlice"
 import type { RootState, AppDispatch } from "@/lib/store"
 import styles from "./auth.module.scss"
+import { useToast } from "@/components/ui/use-toast"
 
 export const RegisterForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -21,14 +22,9 @@ export const RegisterForm: React.FC = () => {
   })
   const [passwordError, setPasswordError] = useState("")
   const dispatch: AppDispatch = useDispatch()
-  const { loading, error, isAuthenticated } = useSelector((state: RootState) => state.auth)
+  const { loading, error } = useSelector((state: RootState) => state.auth)
   const router = useRouter()
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      router.push("/") // Redirect to main page on successful registration
-    }
-  }, [isAuthenticated, router])
+  const { toast } = useToast()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -43,7 +39,12 @@ export const RegisterForm: React.FC = () => {
       return
     }
 
-    dispatch(registerUser(formData))
+    const result = await dispatch(registerUser(formData))
+    
+    if (registerUser.fulfilled.match(result)) {
+      localStorage.setItem("registrationSuccess", "true")
+      router.push("/auth/login")
+    }
   }
 
   return (

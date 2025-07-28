@@ -10,6 +10,7 @@ import { Navbar } from "@/components/navbar/Navbar"
 import { AuthNavbar } from "@/components/navbar/AuthNavbar"
 import { loadUserFromStorage } from "@/lib/authSlice"
 import { usePathname, useRouter } from "next/navigation"
+import { Toaster } from "@/components/ui/toaster"
 
 export default function ClientLayout({
   children,
@@ -22,6 +23,7 @@ export default function ClientLayout({
         <Provider store={store}>
           <ThemeProvider>
             <ClientLayoutInner>{children}</ClientLayoutInner>
+            <Toaster />
           </ThemeProvider>
         </Provider>
       </body>
