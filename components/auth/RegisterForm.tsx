@@ -21,6 +21,8 @@ export const RegisterForm: React.FC = () => {
     password_confirmation: "",
   })
   const [passwordError, setPasswordError] = useState("")
+  const [usernameError, setUsernameError] = useState("")
+  const [phoneError, setPhoneError] = useState("")
   const dispatch: AppDispatch = useDispatch()
   const { loading, error } = useSelector((state: RootState) => state.auth)
   const router = useRouter()
@@ -28,6 +30,20 @@ export const RegisterForm: React.FC = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
+    if (e.target.name === "username") {
+      if (e.target.value.length < 2) {
+        setUsernameError("Username kamida 2 ta belgidan iborat bo'lishi kerak")
+      } else {
+        setUsernameError("")
+      }
+    }
+    if (e.target.name === "phone") {
+      if (!e.target.value.startsWith("+")) {
+        setPhoneError("Telefon raqam + bilan boshlanishi kerak")
+      } else {
+        setPhoneError("")
+      }
+    }
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -36,6 +52,15 @@ export const RegisterForm: React.FC = () => {
 
     if (formData.password !== formData.password_confirmation) {
       setPasswordError("Passwords do not match")
+      return
+    }
+
+    if (formData.username.length < 2) {
+      setUsernameError("Username kamida 2 ta belgidan iborat bo'lishi kerak")
+      return
+    }
+    if (!formData.phone.startsWith("+")) {
+      setPhoneError("Telefon raqam + bilan boshlanishi kerak")
       return
     }
 
@@ -61,7 +86,6 @@ export const RegisterForm: React.FC = () => {
               name="first_name"
               value={formData.first_name}
               onChange={handleChange}
-              required
             />
           </div>
           <div className={styles["form-group"]}>
@@ -72,7 +96,6 @@ export const RegisterForm: React.FC = () => {
               name="last_name"
               value={formData.last_name}
               onChange={handleChange}
-              required
             />
           </div>
           <div className={styles["form-group"]}>
@@ -85,6 +108,7 @@ export const RegisterForm: React.FC = () => {
               onChange={handleChange}
               required
             />
+            {usernameError && <p className="error-message">{usernameError}</p>}
           </div>
           <div className={styles["form-group"]}>
             <label htmlFor="phoneNumber">Phone Number</label>
@@ -96,10 +120,11 @@ export const RegisterForm: React.FC = () => {
               onChange={handleChange}
               required
             />
+            {phoneError && <p className="error-message">{phoneError}</p>}
           </div>
           <div className={styles["form-group"]}>
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
+            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} />
           </div>
           <div className={styles["form-group"]}>
             <label htmlFor="password">Password</label>
