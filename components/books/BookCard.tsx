@@ -17,7 +17,7 @@ interface BookCardProps {
 
 export const BookCard: React.FC<BookCardProps> = ({ book }) => {
   const handleDownload = () => {
-    console.log(`${process.env.NEXT_PUBLIC_API_URL?.split('api/')[0]}storage/${book.file}`);
+    console.log(`${process.env.NEXT_PUBLIC_API_URL?.split('api/api')[0]}storage/${book.file}`);
     
     const downloadUrl = `${process.env.NEXT_PUBLIC_API_URL?.split('api/')[0]}storage/${book.file}`;
     const link = document.createElement("a");
