@@ -19,7 +19,7 @@ export const BookCard: React.FC<BookCardProps> = ({ book }) => {
   const handleDownload = () => {
     console.log(`${process.env.NEXT_PUBLIC_API_URL?.split('api/api')[0]}storage/${book.file}`);
     
-    const downloadUrl = `${process.env.NEXT_PUBLIC_API_URL?.split('api/')[0]}storage/${book.file}`;
+    const downloadUrl = `${process.env.NEXT_PUBLIC_API_URL?.split('api/api')[0]}storage/${book.file}`;
     const link = document.createElement("a");
     link.href = downloadUrl;
     link.download = book.title; // Set the file name for download
